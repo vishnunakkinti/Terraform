@@ -14,7 +14,7 @@ resource "aws_iam_role" "cluster" {
 }
 
 resource "aws_iam_role_policy_attachment" "cluster_policy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazoneksClusterPolicy"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = aws_iam_role.cluster.name
 }
 
@@ -49,8 +49,8 @@ resource "aws_iam_role" "node" {
 
 resource "aws_iam_role_policy_attachment" "node_policy" {
   for_each = toset([
-    "arn:aws:iam::aws:policy/AmazoneksWorkerNodePolicy",
-    "arn:aws:iam::aws:policy/Amazoneks_CNI_Policy",
+    "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+    "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
     "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   ])
 

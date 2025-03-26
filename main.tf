@@ -5,24 +5,20 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+  backend "s3" {
+    bucket         = "demo-terraform-eks-state-s3-bucket"
+    key            = "terraform.tfstate"
+    region         = "us-west-2"
+    dynamodb_table = "terraform-eks-state-locks"
+    encrypt        = true
+  }
 }
 
 provider "aws" {
   region = var.region
 }
-module "s3" {
-    source = "./modules/s3"
 
-    bucket_name = var.bucket_name
-  
-}
-
-module "dynamodb" {
-    source = "./modules/dynamodb"
-    
-    aws_dynamodb_table = var.aws_dynamodb_table 
-    
-}
 module "vpc" {
   source = "./modules/vpc"
 
