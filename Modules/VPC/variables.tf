@@ -1,5 +1,5 @@
 variable "vpc_cidr" {
-  description = "CIDR block for VPC"
+  description = "CIDR block for vpc"
   type        = string
 }
 
@@ -19,6 +19,6 @@ variable "public_subnet_cidrs" {
 }
 
 variable "cluster_name" {
-  description = "Name of the EKS cluster"
+  description = "Name of the eks cluster"
   type        = string
 }

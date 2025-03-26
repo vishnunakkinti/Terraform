@@ -5,19 +5,19 @@ variable "region" {
 }
 
 variable "bucket_name" {
-  description = "Name of the S3 Bucket"
+  description = "Name of the s3 Bucket"
   type        = string
-  default     = "OpenTelemetry-S3-state-bucket"
+  default     = "OpenTelemetry-s3-state-bucket"
 }
 
 variable "aws_dynamodb_table" {
-    description = "Name of the DynamoDB Table"
+    description = "Name of the dynamodb Table"
     type = string
-    default = "OpenTelemetry-DynamoDB-Table"
+    default = "OpenTelemetry-dynamodb-Table"
 }
 
 variable "vpc_cidr" {
-  description = "CIDR block for VPC"
+  description = "CIDR block for vpc"
   type        = string
   default     = "10.0.0.0/16"
 }
@@ -41,9 +41,9 @@ variable "public_subnet_cidrs" {
 }
 
 variable "cluster_name" {
-  description = "Name of the EKS cluster"
+  description = "Name of the eks cluster"
   type        = string
-  default     = "OpenTelemetry-EKS-Cluster"
+  default     = "OpenTelemetry-eks-Cluster"
 }
 
 variable "cluster_version" {
@@ -53,7 +53,7 @@ variable "cluster_version" {
 }
 
 variable "node_groups" {
-  description = "EKS node group configuration"
+  description = "eks node group configuration"
   type = map(object({
     instance_types = list(string)
     capacity_type  = string

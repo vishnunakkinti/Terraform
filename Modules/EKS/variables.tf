@@ -1,5 +1,5 @@
 variable "cluster_name" {
-  description = "Name of the EKS cluster"
+  description = "Name of the eks cluster"
   type        = string
 }
 
@@ -9,7 +9,7 @@ variable "cluster_version" {
 }
 
 variable "vpc_id" {
-  description = "VPC ID"
+  description = "vpc ID"
   type        = string
 }
 
@@ -19,7 +19,7 @@ variable "subnet_ids" {
 }
 
 variable "node_groups" {
-  description = "EKS node group configuration"
+  description = "eks node group configuration"
   type = map(object({
     instance_types = list(string)
     capacity_type  = string

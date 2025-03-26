@@ -10,21 +10,21 @@ terraform {
 provider "aws" {
   region = var.region
 }
-module "S3" {
-    source = "./Modules/S3"
+module "s3" {
+    source = "./modules/s3"
 
     bucket_name = var.bucket_name
   
 }
 
-module "DynamoDB" {
-    source = "./Modules/DynamoDB"
+module "dynamodb" {
+    source = "./modules/dynamodb"
     
     aws_dynamodb_table = var.aws_dynamodb_table 
     
 }
-module "VPC" {
-  source = "./Modules/VPC"
+module "vpc" {
+  source = "./modules/vpc"
 
   vpc_cidr             = var.vpc_cidr
   availability_zones   = var.availability_zones
@@ -33,8 +33,8 @@ module "VPC" {
   cluster_name         = var.cluster_name
 }
 
-module "EKS" {
-  source = "./Modules/EKS"
+module "eks" {
+  source = "./modules/eks"
 
   cluster_name    = var.cluster_name
   cluster_version = var.cluster_version
