@@ -1,3 +1,5 @@
+
+# Creating multiple EC2 with different sizes
 resource "aws_instance" "instance" {
   for_each =  var.ec2_foreach
   ami = var.ec2_emi
